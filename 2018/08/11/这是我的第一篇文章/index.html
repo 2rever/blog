@@ -407,6 +407,11 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/08/11/hello-world/" title= 这是第一篇博文 >
+                    <div class="nextTitle">这是第一篇博文</div>
+                </a>
+            
         </li>
         <li class="previous">
             
@@ -425,6 +430,22 @@ height:50vh;
 
     
     
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "MSLC08eviYHL1PzIQTUogXt8-gzGzoHsz",
+        appKey: "EhE0mPw18qzYYcTVY8hmNUbq",
+        placeholder: "",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
 
     <!-- 评论 -->
 </main>
@@ -453,6 +474,10 @@ height:50vh;
     
         
     
+        
+            
+                <a href="/2rever" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
+            
         
     
         
@@ -538,9 +563,16 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 1
+        Total : 2
         </div>
         <!-- search  -->
         
@@ -557,6 +589,20 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">08/11</span><a class="archive-post-title" href= "/2018/08/11/这是我的第一篇文章/" >这是我的第一篇文章</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/08/11/hello-world/" >这是第一篇博文</a>
         </li>
     
     </div>
