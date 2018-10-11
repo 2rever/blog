@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>js里的对象的深浅拷贝 · 2rever的前端小站</title>
+    <title>react 虚拟DOM和diff算法的笔记 · 2rever的前端小站</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >2rever的前端小站</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">js里的对象的深浅拷贝</a>
+                <a href="#" class="post-name">react 虚拟DOM和diff算法的笔记</a>
             </div>
     </div>
     
@@ -242,7 +242,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            js里的对象的深浅拷贝
+            react 虚拟DOM和diff算法的笔记
             <!-- 404 -->
             
         </h1>
@@ -261,12 +261,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">361</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">606</span> / Reading time: <span class="post-count">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/09/30</span>
+                    <span class="post-intro-time">2018/10/11</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -390,21 +390,45 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="js里的对象的深浅拷贝"><a href="#js里的对象的深浅拷贝" class="headerlink" title="js里的对象的深浅拷贝"></a>js里的对象的深浅拷贝</h2><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><p>众所周知，js里面对象及其数组不是基本数据类型，当复制操作的时候我们不会复制一个值出来，而是复制一个对这个值的指向，当我们有复制对象需求的时候，可以借助lodash上相应的函数，或者使用一下方法实现。</p>
+        <h2 id="react-虚拟DOM和diff算法的笔记"><a href="#react-虚拟DOM和diff算法的笔记" class="headerlink" title="react 虚拟DOM和diff算法的笔记"></a>react 虚拟DOM和diff算法的笔记</h2><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><h1 id="react-虚拟DOM和diff算法的笔记-1"><a href="#react-虚拟DOM和diff算法的笔记-1" class="headerlink" title="react 虚拟DOM和diff算法的笔记"></a>react 虚拟DOM和diff算法的笔记</h1><h3 id="几种更改数据算法的区别"><a href="#几种更改数据算法的区别" class="headerlink" title="几种更改数据算法的区别"></a>几种更改数据算法的区别</h3><ol>
+<li>state 数据</li>
+<li>JSX 模板</li>
+<li>数据 + 模板  结合，生成真实DOM，来显示</li>
+<li>state发生改变</li>
+<li>数据 + 模板 结合，生成真实的DOM，替换原始DOM</li>
+</ol>
 <ul>
-<li>浅拷贝指的是当对象有多层的时候只复制第一层，子对象还是复制的指向。</li>
-<li>深拷贝指的是连同子对象都是一个全新的值。</li>
-<li><p>浅拷贝</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowCopy</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dst = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> prop <span class="keyword">in</span> src) &#123;</span><br><span class="line">        <span class="keyword">if</span>(src.hasOwnProperty(prop)) &#123;</span><br><span class="line">            dst[prop] = src[prop]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dst</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>深拷贝</p>
-</li>
-<li>这种方式是最便捷的深拷贝方式，但是原型链会遭到破坏，原有对象的原型会丢失。</li>
+<li>缺陷：<br>第一次生成了一个完整的DOM片段<br>第二次生成了一个完整的DOM片段<br>第二次的DOM替换第一次的DOM<br>直接操作DOM元素，消耗大量的性能</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSON.parse(JSON.stringify(obj))</span><br></pre></td></tr></table></figure>
+<p>============================</p>
+<p>1.state 数据</p>
+<ol start="2">
+<li>JSX 模板</li>
+<li>数据 + 模板  结合，生成真实DOM，并不直接替换原始的DOM</li>
+<li>state 发生改变</li>
+<li>数据 + 模板 结合，生成真实的DOM，并不直接替换原始DOM</li>
+<li>新的DOM（DocumentFragment） 和原始的DOM 作比对，找差异</li>
+<li>找出input 框发生了变化</li>
+<li>只用新的DOM中的input 元素，替换掉老的DOM的input元素</li>
+</ol>
 <ul>
-<li>自己实现深拷贝的方式可避免上述的问题<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  定义一个对象，用来确定当前的参数是数组还是对象</span></span><br><span class="line">  <span class="keyword">var</span> objArray = <span class="built_in">Array</span>.isArray(obj) ? [] : &#123;&#125;</span><br><span class="line">  <span class="comment">// 如果obj存在，且类型为对象</span></span><br><span class="line">  <span class="keyword">if</span> (obj &amp;&amp; <span class="keyword">typeof</span> obj === <span class="string">"object"</span> ) &#123;</span><br><span class="line">    <span class="keyword">for</span> (key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">        <span class="comment">// 如果obj的子元素是对象，递归操作</span></span><br><span class="line">        <span class="keyword">if</span> (obj[key] &amp;&amp; <span class="keyword">typeof</span> obj[key] === <span class="string">"object"</span>) &#123;</span><br><span class="line">          objArray[key] = deepCopy(obj[key])</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 如果不是，直接赋值</span></span><br><span class="line">          objArray[key] = obj[key]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> objArray <span class="comment">//返回新的对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>缺陷：<br>性能的提升并不明显，虽然替换input元素节约了一部分性能，但是直接在新旧DOM<br>做对比，还是有一些性能上的损耗。</li>
+</ul>
+<p>============================</p>
+<p>1.state 数据</p>
+<ol start="2">
+<li>JSX 模板<br>3.生成虚拟DOM（虚拟DOM就是一个JS对象，用来描述真实DOM）(损耗性能)</li>
+<li>用虚拟DOM的结构，生成真实的DOM，来显示</li>
+<li>state 发生变化</li>
+<li>数据 + 模板 生成新的虚拟DOM<br>7.比较原始虚拟DOM 和新的虚拟DOM区别，找到两者的区别（极大提升了性能）<br>8.直接操作DOM，改变变化的内容</li>
+</ol>
+<p>*优点：<br>  1.性能提升了。<br>  2.它使得酷啊段应用得以实现 React Native</p>
+<p>============================</p>
+<ul>
+<li>setState是异步的，如果连续调用多次setState，react会合并成一次，来节约调用多次setState做的性能消耗。</li>
+</ul>
+<h3 id="diff-算法的同层比对"><a href="#diff-算法的同层比对" class="headerlink" title="diff 算法的同层比对"></a>diff 算法的同层比对</h3><ul>
+<li>diff算法只比对一层DOM元素，只要一层不一样，则重新生成一次真实DOM，不会继续向下做对比，并替换原来的真实DOM元素，可能会造成DOM重新渲染的浪费，但是因为是同层比对，速度会比较快。而且在虚拟DOM当中设置key值，会对比前后两个虚拟DOM的key值会很快对比出来，当用index来作为key的时候，index是不稳定的，所以尽量不要用index来作为key值，来提升虚拟DOM对比的性能。</li>
 </ul>
 
     </article>
@@ -412,8 +436,8 @@ height:50vh;
     
         <div class="license-wrapper">
             <p>原文作者: <a href="https://2rever.cn">2rever</a>
-            <p>原文链接: <a href="https://2rever.cn/2018/09/30/js深浅拷贝/">https://2rever.cn/2018/09/30/js深浅拷贝/</a>
-            <p>发表日期: <a href="https://2rever.cn/2018/09/30/js深浅拷贝/">September 30th 2018, 2:25:18 pm</a>
+            <p>原文链接: <a href="https://2rever.cn/2018/10/11/react 虚拟DOM和diff算法的笔记/">https://2rever.cn/2018/10/11/react 虚拟DOM和diff算法的笔记/</a>
+            <p>发表日期: <a href="https://2rever.cn/2018/10/11/react 虚拟DOM和diff算法的笔记/">October 11th 2018, 10:57:32 pm</a>
             <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -421,17 +445,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/10/11/react 虚拟DOM和diff算法的笔记/" title= react 虚拟DOM和diff算法的笔记 >
-                    <div class="nextTitle">react 虚拟DOM和diff算法的笔记</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/08/12/Hexo博客添加评论功能/" title= 这是我的第一篇文章 >
-                    <div class="prevTitle">这是我的第一篇文章</div>
+                <a href= "/2018/09/30/js深浅拷贝/" title= js里的对象的深浅拷贝 >
+                    <div class="prevTitle">js里的对象的深浅拷贝</div>
                 </a>
             
         </li>
@@ -562,7 +581,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#js里的对象的深浅拷贝"><span class="toc-number">1.</span> <span class="toc-text">js里的对象的深浅拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#js"><span class="toc-number">1.1.</span> <span class="toc-text">js</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#react-虚拟DOM和diff算法的笔记"><span class="toc-number">1.</span> <span class="toc-text">react 虚拟DOM和diff算法的笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#js"><span class="toc-number">1.1.</span> <span class="toc-text">js</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-虚拟DOM和diff算法的笔记-1"><span class="toc-number"></span> <span class="toc-text">react 虚拟DOM和diff算法的笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#几种更改数据算法的区别"><span class="toc-number">0.1.</span> <span class="toc-text">几种更改数据算法的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#diff-算法的同层比对"><span class="toc-number">0.2.</span> <span class="toc-text">diff 算法的同层比对</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
