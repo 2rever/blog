@@ -261,7 +261,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">606</span> / Reading time: <span class="post-count">2 min</span></span>
+                        <span>Word count: <span class="post-count">649</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -390,40 +390,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="react-虚拟DOM和diff算法的笔记"><a href="#react-虚拟DOM和diff算法的笔记" class="headerlink" title="react 虚拟DOM和diff算法的笔记"></a>react 虚拟DOM和diff算法的笔记</h2><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><h1 id="react-虚拟DOM和diff算法的笔记-1"><a href="#react-虚拟DOM和diff算法的笔记-1" class="headerlink" title="react 虚拟DOM和diff算法的笔记"></a>react 虚拟DOM和diff算法的笔记</h1><h3 id="几种更改数据算法的区别"><a href="#几种更改数据算法的区别" class="headerlink" title="几种更改数据算法的区别"></a>几种更改数据算法的区别</h3><ol>
-<li>state 数据</li>
-<li>JSX 模板</li>
-<li>数据 + 模板  结合，生成真实DOM，来显示</li>
-<li>state发生改变</li>
-<li>数据 + 模板 结合，生成真实的DOM，替换原始DOM</li>
-</ol>
-<ul>
-<li>缺陷：<br>第一次生成了一个完整的DOM片段<br>第二次生成了一个完整的DOM片段<br>第二次的DOM替换第一次的DOM<br>直接操作DOM元素，消耗大量的性能</li>
-</ul>
-<p>============================</p>
-<p>1.state 数据</p>
-<ol start="2">
-<li>JSX 模板</li>
-<li>数据 + 模板  结合，生成真实DOM，并不直接替换原始的DOM</li>
-<li>state 发生改变</li>
-<li>数据 + 模板 结合，生成真实的DOM，并不直接替换原始DOM</li>
-<li>新的DOM（DocumentFragment） 和原始的DOM 作比对，找差异</li>
-<li>找出input 框发生了变化</li>
-<li>只用新的DOM中的input 元素，替换掉老的DOM的input元素</li>
-</ol>
-<ul>
-<li>缺陷：<br>性能的提升并不明显，虽然替换input元素节约了一部分性能，但是直接在新旧DOM<br>做对比，还是有一些性能上的损耗。</li>
-</ul>
-<p>============================</p>
-<p>1.state 数据</p>
-<ol start="2">
-<li>JSX 模板<br>3.生成虚拟DOM（虚拟DOM就是一个JS对象，用来描述真实DOM）(损耗性能)</li>
-<li>用虚拟DOM的结构，生成真实的DOM，来显示</li>
-<li>state 发生变化</li>
-<li>数据 + 模板 生成新的虚拟DOM<br>7.比较原始虚拟DOM 和新的虚拟DOM区别，找到两者的区别（极大提升了性能）<br>8.直接操作DOM，改变变化的内容</li>
-</ol>
-<p>*优点：<br>  1.性能提升了。<br>  2.它使得酷啊段应用得以实现 React Native</p>
-<p>============================</p>
+        <h2 id="react-虚拟DOM和diff算法的笔记"><a href="#react-虚拟DOM和diff算法的笔记" class="headerlink" title="react 虚拟DOM和diff算法的笔记"></a>react 虚拟DOM和diff算法的笔记</h2><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><h1 id="react-虚拟DOM和diff算法的笔记-1"><a href="#react-虚拟DOM和diff算法的笔记-1" class="headerlink" title="react 虚拟DOM和diff算法的笔记"></a>react 虚拟DOM和diff算法的笔记</h1><h3 id="几种更改数据算法的区别"><a href="#几种更改数据算法的区别" class="headerlink" title="几种更改数据算法的区别"></a>几种更改数据算法的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">1. state 数据</span><br><span class="line">2. JSX 模板</span><br><span class="line">3. 数据 + 模板  结合，生成真实DOM，来显示</span><br><span class="line">4. state发生改变</span><br><span class="line">5. 数据 + 模板 结合，生成真实的DOM，替换原始DOM</span><br><span class="line"></span><br><span class="line">* 缺陷：</span><br><span class="line">  第一次生成了一个完整的DOM片段</span><br><span class="line">  第二次生成了一个完整的DOM片段</span><br><span class="line">  第二次的DOM替换第一次的DOM</span><br><span class="line">  直接操作DOM元素，消耗大量的性能</span><br><span class="line"></span><br><span class="line">============================</span><br><span class="line"></span><br><span class="line">1.state 数据</span><br><span class="line">2. JSX 模板</span><br><span class="line">3. 数据 + 模板  结合，生成真实DOM，并不直接替换原始的DOM</span><br><span class="line">4. state 发生改变</span><br><span class="line">5. 数据 + 模板 结合，生成真实的DOM，并不直接替换原始DOM</span><br><span class="line">6. 新的DOM（DocumentFragment） 和原始的DOM 作比对，找差异</span><br><span class="line">7. 找出input 框发生了变化</span><br><span class="line">8. 只用新的DOM中的input 元素，替换掉老的DOM的input元素</span><br><span class="line"></span><br><span class="line">* 缺陷： </span><br><span class="line">  性能的提升并不明显，虽然替换input元素节约了一部分性能，但是直接在新旧DOM</span><br><span class="line">  做对比，还是有一些性能上的损耗。</span><br><span class="line"></span><br><span class="line">============================</span><br><span class="line"></span><br><span class="line">1.state 数据</span><br><span class="line">2. JSX 模板</span><br><span class="line">3.生成虚拟DOM（虚拟DOM就是一个JS对象，用来描述真实DOM）(损耗性能)</span><br><span class="line">4. 用虚拟DOM的结构，生成真实的DOM，来显示</span><br><span class="line">5. state 发生变化</span><br><span class="line">6. 数据 + 模板 生成新的虚拟DOM</span><br><span class="line">7.比较原始虚拟DOM 和新的虚拟DOM区别，找到两者的区别（极大提升了性能）</span><br><span class="line">8.直接操作DOM，改变变化的内容</span><br><span class="line"></span><br><span class="line">*优点：</span><br><span class="line">  1.性能提升了。</span><br><span class="line">  2.它使得酷啊段应用得以实现 React Native</span><br><span class="line"></span><br><span class="line">============================</span><br></pre></td></tr></table></figure>
 <ul>
 <li>setState是异步的，如果连续调用多次setState，react会合并成一次，来节约调用多次setState做的性能消耗。</li>
 </ul>
@@ -594,6 +561,8 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
