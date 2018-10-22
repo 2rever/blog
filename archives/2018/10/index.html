@@ -354,7 +354,7 @@
                 <span>node.js自带promisify函数实现</span>
         </a>
         <div class="abstract-content">
-            promisify函数123456789101112131415161718192021// 把基于回调的函数转为基于promisefunction promisify(f) &#123;    //返回一个函数，形参收集参数  return function(...args) &#123;    return new Promise((resolve, reject) =&gt; &#123;      f(...args, function(error, data) &#123;        if (error) &#123;          reject(error)     ...
+            promisify函数123456789101112131415161718192021// 把基于回调的函数转为基于promisefunction promisify(f) &#123;  //返回一个函数收集参数  return function(...args) &#123;    return new Promise((res,rej) =&gt; &#123;      f(...args,(err,data) =&gt; &#123;        if(err)&#123;          rej(err)        &#125;else &#123;        ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -499,6 +499,8 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
