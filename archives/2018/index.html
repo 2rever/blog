@@ -349,6 +349,80 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/23/js选择排序/" >
+            
+                <span>js选择排序</span>
+        </a>
+        <div class="abstract-content">
+            选择排序
+速度较慢，速度为 O(n^2)123456789101112131415//不稳定 n*nfunction selectSort(ary) &#123;  var l = ary.length  var minPos  for(var i = 0; i &lt; l - 1; i++) &#123;    minPos = i    for(var j = i + 1; j &lt; l; j++) &#123;      if (ary[j] &lt; ary[minPos]) &#123;        minPos = j      &#125;    &#125;   ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/23/js冒泡排序/" >
+            
+                <span>js冒泡排序</span>
+        </a>
+        <div class="abstract-content">
+            冒泡排序
+速度较慢，速度为 O(n^2)
+1234567891011121314151617//冒泡排序//循环控制趟数，i是趟数-1function bubble(array)&#123;  for (var i = 0; i &lt; array.length; i++) &#123;  //每一趟里面：要对比所有的数据进行交换，把大的值交换到后面的位置    for (var k = 0; k &lt; array.length - i - 1; k++) &#123;      //进行判断大小然后交换两个数据      if (array[k]&gt;array[k+1]) &...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/23/js归并排序/" >
+            
+                <span>js归并排序</span>
+        </a>
+        <div class="abstract-content">
+            归并排序
+第一个工业级别的算法
+归并排序没有办法就地排序12345678910111213141516171819202122function mergeSort(ary) &#123;  if (ary.length &lt; 2) &#123;    return ary.slice()  &#125;  var mid = Math.floor(ary.length / 2)  var left = mergeSort(ary.slice(0, mid))  var right = mergeSort(ary.slice(mid))  var result = []  while(...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/10/23/js中bind函数的实现（不考虑this）/" >
             
                 <span>bind方法实现（不考虑this）</span>
@@ -530,59 +604,11 @@
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/30/js深浅拷贝/" >
-            
-                <span>js里的对象的深浅拷贝</span>
-        </a>
-        <div class="abstract-content">
-            众所周知，js里面对象及其数组不是基本数据类型，当复制操作的时候我们不会复制一个值出来，而是复制一个对这个值的指向，当我们有复制对象需求的时候，可以借助lodash上相应的函数，或者使用一下方法实现。
-
-浅拷贝指的是当对象有多层的时候只复制第一层，子对象还是复制的指向。
-深拷贝指的是连同子对象都是一个全新的值。
-浅拷贝
-123456789function shallowCopy(src) &#123;    var dst = &#123;&#125;    for(var prop in src) &#123;        if(src.hasOwnProperty(prop)) &...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/08/12/Hexo博客添加评论功能/" >
-            
-                <span>这是我的第一篇文章</span>
-        </a>
-        <div class="abstract-content">
-            Hexo博客添加valine评论功能增加评论功能我原来以为添加评论是一件很麻烦的事情，其实就是在LeanCloud上注册账号，获取appId和appKey，然后在themes目录下自己选用的主题目录下，找到_config.yml文件，找到valine字段，把下文xxx字段替换为valine官网上设置里面获取的值填进去就完了，由于本主题已经集成多种非后端评论系统，所以直接开箱即用。12valine_appId: xxxvaline_appKey: xxx
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/12</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">NEXT &#62;</a>
+    </nav>
     
 </main>
             <!-- profile -->
@@ -761,9 +787,48 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 9
+        Total : 12
         </div>
         <!-- search  -->
         
@@ -779,7 +844,17 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js柯里化curry函数实现/" >js柯里化curry函数实现</a>
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js选择排序/" >js选择排序</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js归并排序/" >js归并排序</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
         </li>
     
     
@@ -789,12 +864,17 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js快速排序/" >js快速排序</a>
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js柯里化curry函数实现/" >js柯里化curry函数实现</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js二叉树遍历方法/" >js二叉树遍历方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js快速排序/" >js快速排序</a>
         </li>
     
     

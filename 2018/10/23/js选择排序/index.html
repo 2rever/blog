@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>2rever的前端小站</title>
+    <title>js选择排序 · 2rever的前端小站</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -204,12 +206,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >2rever的前端小站</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">js选择排序</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>2rever的前端小站</a>
 </header>
@@ -223,24 +236,68 @@
 
 
 
+height:50vh;
+
 >
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            js选择排序
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">74</span> / Reading time: <span class="post-count">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/10/23</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -341,271 +398,67 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/23/js选择排序/" >
-            
-                <span>js选择排序</span>
-        </a>
-        <div class="abstract-content">
-            选择排序
-速度较慢，速度为 O(n^2)123456789101112131415//不稳定 n*nfunction selectSort(ary) &#123;  var l = ary.length  var minPos  for(var i = 0; i &lt; l - 1; i++) &#123;    minPos = i    for(var j = i + 1; j &lt; l; j++) &#123;      if (ary[j] &lt; ary[minPos]) &#123;        minPos = j      &#125;    &#125;   ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/23/js冒泡排序/" >
-            
-                <span>js冒泡排序</span>
-        </a>
-        <div class="abstract-content">
-            冒泡排序
-速度较慢，速度为 O(n^2)
-1234567891011121314151617//冒泡排序//循环控制趟数，i是趟数-1function bubble(array)&#123;  for (var i = 0; i &lt; array.length; i++) &#123;  //每一趟里面：要对比所有的数据进行交换，把大的值交换到后面的位置    for (var k = 0; k &lt; array.length - i - 1; k++) &#123;      //进行判断大小然后交换两个数据      if (array[k]&gt;array[k+1]) &...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/23/js归并排序/" >
-            
-                <span>js归并排序</span>
-        </a>
-        <div class="abstract-content">
-            归并排序
-第一个工业级别的算法
-归并排序没有办法就地排序12345678910111213141516171819202122function mergeSort(ary) &#123;  if (ary.length &lt; 2) &#123;    return ary.slice()  &#125;  var mid = Math.floor(ary.length / 2)  var left = mergeSort(ary.slice(0, mid))  var right = mergeSort(ary.slice(mid))  var result = []  while(...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/23/js中bind函数的实现（不考虑this）/" >
-            
-                <span>bind方法实现（不考虑this）</span>
-        </a>
-        <div class="abstract-content">
-            bind函数123456//bind的实现function bind(f,...fixedArgs)&#123;  return function(...args)&#123;    return f(...fixedArgs,...args)  &#125;&#125;
-123456789//bind原来的实现function bind(f) &#123;  var fixedArgs = Array.from(arguments).slice(1)  return function() &#123;    var args = Array.from(arguments)    var...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/23/js柯里化curry函数实现/" >
-            
-                <span>js柯里化curry函数实现</span>
-        </a>
-        <div class="abstract-content">
-            curry函数123456789101112131415161718192021222324252627282930313233343536373839404142function curry(f, l = f.length) &#123;  return function(...args1) &#123;    if (args1.length &gt;= l) &#123;      return f(...args1)    &#125; else &#123;      return function(...args2) &#123;        if (args1.lengt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/23/js二叉树遍历方法/" >
-            
-                <span>js二叉树遍历方法</span>
-        </a>
-        <div class="abstract-content">
-            <h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><ul>
-<li>二叉树前序遍历</li>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><ul>
+<li>速度较慢，速度为 O(n^2)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不稳定 n*n</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectSort</span>(<span class="params">ary</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> l = ary.length</span><br><span class="line">  <span class="keyword">var</span> minPos</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; l - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    minPos = i</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; l; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (ary[j] &lt; ary[minPos]) &#123;</span><br><span class="line">        minPos = j</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    swap(ary, i, minPos)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ary</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树前序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">preOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    action(root.val)</span><br><span class="line">    preOrderTraverse(root.left,action)</span><br><span class="line">    preOrderTraverse(root.right,action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>二叉树后序遍历</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树后序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">postOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    postOrderTraverse(root.left,action)</span><br><span class="line">    postOrderTraverse(root.right,action)</span><br><span class="line">    action(root.val)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>二叉树中序遍历</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树中序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">midOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    midOrderTraverse(root.left,action)</span><br><span class="line">    action(root.val)</span><br><span class="line">    midOrderTraverse(root.right,action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h2><ul>
-<li>广度优先遍历是从二叉树的第一层（根结点）开始，自上至下逐层遍历；在同一层中，按照从左到右的顺序对结点逐一访问。<br>实现：
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/23/js快速排序/" >
-            
-                <span>js快速排序</span>
-        </a>
-        <div class="abstract-content">
-            
-第二个工业级别的算法
-快速排序有就地排序和占用空间的排序
-暴力写法（经典写法）
-但是这个写法空间占用太大，所以不用这个写法
-可以通过快排找到数组中第K大的元素
-找到前K大的元素
-使用空间最少，速度最快
 
-1234567891011121314151617181920212223function quickSort2(ary) &#123;  if (ary.length &lt; 2) &#123;    return ary.slice()  &#125;  var pivot = ary[Math.floor(Math.random() * ary.length)]//0到数组长度...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/22/node.js自带promisify函数实现/" >
-            
-                <span>node.js自带promisify函数实现</span>
-        </a>
-        <div class="abstract-content">
-            123456789101112131415161718192021// 把基于回调的函数转为基于promisefunction promisify(f) &#123;  //返回一个函数收集参数  return function(...args) &#123;    return new Promise((res,rej) =&gt; &#123;      f(...args,(err,data) =&gt; &#123;        if(err)&#123;          rej(err)        &#125;else &#123;          res(data)...
+        <div class="license-wrapper">
+            <p>原文作者: <a href="https://2rever.cn">2rever</a>
+            <p>原文链接: <a href="https://2rever.cn/2018/10/23/js选择排序/">https://2rever.cn/2018/10/23/js选择排序/</a>
+            <p>发表日期: <a href="https://2rever.cn/2018/10/23/js选择排序/">October 23rd 2018, 11:10:36 pm</a>
+            <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/22</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/12/二分查找的笔记/" >
-            
-                <span>二分查找的笔记</span>
-        </a>
-        <div class="abstract-content">
-            
-递归写法
-
-1234567891011121314151617function binarySearch(data, dest, start, end)&#123;    var end = end || data.length - 1,    start = start || 0,    middle = Math.floor((start + end) / 2);    // 递归完成条件    if(data[middle] == dest)&#123;        return middle;    &#125;    // 条件判断进行不同的递归    if(dest &l...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/12</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/11/react 虚拟DOM和diff算法的笔记/" >
-            
-                <span>react 虚拟DOM和diff算法的笔记</span>
-        </a>
-        <div class="abstract-content">
-            几种更改数据算法的区别123456789101112131415161718192021222324252627282930313233343536373839404142431. state 数据2. JSX 模板3. 数据 + 模板  结合，生成真实DOM，来显示4. state发生改变5. 数据 + 模板 结合，生成真实的DOM，替换原始DOM* 缺陷：  第一次生成了一个完整的DOM片段  第二次生成了一个完整的DOM片段  第二次的DOM替换第一次的DOM  直接操作DOM元素，消耗大量的性能============================1.state 数据2. JS...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/11</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/10/23/js冒泡排序/" title= js冒泡排序 >
+                    <div class="prevTitle">js冒泡排序</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "MSLC08eviYHL1PzIQTUogXt8-gzGzoHsz",
+        appKey: "EhE0mPw18qzYYcTVY8hmNUbq",
+        placeholder: "",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -677,6 +530,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#选择排序"><span class="toc-number">1.</span> <span class="toc-text">选择排序</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -968,6 +839,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
