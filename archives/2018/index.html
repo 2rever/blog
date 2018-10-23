@@ -354,7 +354,7 @@
                 <span>js二叉树遍历方法</span>
         </a>
         <div class="abstract-content">
-            <h1 id="js二叉树遍历方法"><a href="#js二叉树遍历方法" class="headerlink" title="js二叉树遍历方法"></a>js二叉树遍历方法</h1><h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树前序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">preOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    action(root.val)</span><br><span class="line">    preOrderTraverse(root.left,action)</span><br><span class="line">    preOrderTraverse(root.right,action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树前序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">preOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    action(root.val)</span><br><span class="line">    preOrderTraverse(root.left,action)</span><br><span class="line">    preOrderTraverse(root.right,action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树后序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">postOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    postOrderTraverse(root.left,action)</span><br><span class="line">    postOrderTraverse(root.right,action)</span><br><span class="line">    action(root.val)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树中序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">midOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    midOrderTraverse(root.left,action)</span><br><span class="line">    action(root.val)</span><br><span class="line">    midOrderTraverse(root.right,action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h2><ul>
@@ -381,7 +381,7 @@
                 <span>js快速排序</span>
         </a>
         <div class="abstract-content">
-            js快速排序
+            
 第二个工业级别的算法
 快速排序有就地排序和占用空间的排序
 暴力写法（经典写法）
@@ -390,7 +390,7 @@
 找到前K大的元素
 使用空间最少，速度最快
 
-1234567891011121314151617181920212223function quickSort2(ary) &#123;  if (ary.length &lt; 2) &#123;    return ary.slice()  &#125;  var pivot = ary[Math.floor(Math.random() * ary.length)]//...
+1234567891011121314151617181920212223function quickSort2(ary) &#123;  if (ary.length &lt; 2) &#123;    return ary.slice()  &#125;  var pivot = ary[Math.floor(Math.random() * ary.length)]//0到数组长度...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -413,7 +413,7 @@
                 <span>node.js自带promisify函数实现</span>
         </a>
         <div class="abstract-content">
-            promisify函数123456789101112131415161718192021// 把基于回调的函数转为基于promisefunction promisify(f) &#123;  //返回一个函数收集参数  return function(...args) &#123;    return new Promise((res,rej) =&gt; &#123;      f(...args,(err,data) =&gt; &#123;        if(err)&#123;          rej(err)        &#125;else &#123;        ...
+            123456789101112131415161718192021// 把基于回调的函数转为基于promisefunction promisify(f) &#123;  //返回一个函数收集参数  return function(...args) &#123;    return new Promise((res,rej) =&gt; &#123;      f(...args,(err,data) =&gt; &#123;        if(err)&#123;          rej(err)        &#125;else &#123;          res(data)...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -436,10 +436,10 @@
                 <span>二分查找的笔记</span>
         </a>
         <div class="abstract-content">
-            二分查找的笔记
+            
 递归写法
 
-1234567891011121314151617function binarySearch(data, dest, start, end)&#123;    var end = end || data.length - 1,    start = start || 0,    middle = Math.floor((start + end) / 2);    // 递归完成条件    if(data[middle] == dest)&#123;        return middle;    &#125;    // 条件判断进行不同的递归    if(...
+1234567891011121314151617function binarySearch(data, dest, start, end)&#123;    var end = end || data.length - 1,    start = start || 0,    middle = Math.floor((start + end) / 2);    // 递归完成条件    if(data[middle] == dest)&#123;        return middle;    &#125;    // 条件判断进行不同的递归    if(dest &l...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -462,7 +462,7 @@
                 <span>react 虚拟DOM和diff算法的笔记</span>
         </a>
         <div class="abstract-content">
-            react 虚拟DOM和diff算法的笔记几种更改数据算法的区别123456789101112131415161718192021222324252627282930313233343536373839404142431. state 数据2. JSX 模板3. 数据 + 模板  结合，生成真实DOM，来显示4. state发生改变5. 数据 + 模板 结合，生成真实的DOM，替换原始DOM* 缺陷：  第一次生成了一个完整的DOM片段  第二次生成了一个完整的DOM片段  第二次的DOM替换第一次的DOM  直接操作DOM元素，消耗大量的性能======================...
+            几种更改数据算法的区别123456789101112131415161718192021222324252627282930313233343536373839404142431. state 数据2. JSX 模板3. 数据 + 模板  结合，生成真实DOM，来显示4. state发生改变5. 数据 + 模板 结合，生成真实的DOM，替换原始DOM* 缺陷：  第一次生成了一个完整的DOM片段  第二次生成了一个完整的DOM片段  第二次的DOM替换第一次的DOM  直接操作DOM元素，消耗大量的性能============================1.state 数据2. JS...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -485,12 +485,12 @@
                 <span>js里的对象的深浅拷贝</span>
         </a>
         <div class="abstract-content">
-            js里的对象的深浅拷贝众所周知，js里面对象及其数组不是基本数据类型，当复制操作的时候我们不会复制一个值出来，而是复制一个对这个值的指向，当我们有复制对象需求的时候，可以借助lodash上相应的函数，或者使用一下方法实现。
+            众所周知，js里面对象及其数组不是基本数据类型，当复制操作的时候我们不会复制一个值出来，而是复制一个对这个值的指向，当我们有复制对象需求的时候，可以借助lodash上相应的函数，或者使用一下方法实现。
 
 浅拷贝指的是当对象有多层的时候只复制第一层，子对象还是复制的指向。
 深拷贝指的是连同子对象都是一个全新的值。
 浅拷贝
-123456789function shallowCopy(src) &#123;    var dst = &#123;&#125;    for(var prop in src) &#123;        if(src.hasOwnProper...
+123456789function shallowCopy(src) &#123;    var dst = &#123;&#125;    for(var prop in src) &#123;        if(src.hasOwnProperty(prop)) &...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -610,6 +610,12 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
     
     
     
