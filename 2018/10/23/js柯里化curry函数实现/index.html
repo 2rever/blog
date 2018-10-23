@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>js快速排序 · 2rever的前端小站</title>
+    <title>js柯里化curry函数实现 · 2rever的前端小站</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -220,7 +220,7 @@
                 <a href="/" >2rever的前端小站</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">js快速排序</a>
+                <a href="#" class="post-name">js柯里化curry函数实现</a>
             </div>
     </div>
     
@@ -252,7 +252,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            js快速排序
+            js柯里化curry函数实现
             <!-- 404 -->
             
         </h1>
@@ -271,7 +271,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">533</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">143</span> / Reading time: <span class="post-count">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -400,34 +400,14 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <ul>
-<li>第二个工业级别的算法</li>
-<li>快速排序有就地排序和占用空间的排序</li>
-<li>暴力写法（经典写法）</li>
-<li>但是这个写法空间占用太大，所以不用这个写法</li>
-<li>可以通过快排找到数组中第K大的元素</li>
-<li>找到前K大的元素</li>
-<li>使用空间最少，速度最快</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort2</span>(<span class="params">ary</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (ary.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> ary.slice()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> pivot = ary[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * ary.length)]<span class="comment">//0到数组长度的值向下取整为0到数组长度-1</span></span><br><span class="line">  <span class="keyword">var</span> left = []</span><br><span class="line">  <span class="keyword">var</span> middle = []</span><br><span class="line">  <span class="keyword">var</span> right = []</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;ary.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> val = ary[i]</span><br><span class="line">    <span class="keyword">if</span> (val &lt; pivot) &#123;</span><br><span class="line">      left.push(val)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (val === pivot) &#123;</span><br><span class="line">      middle.push(val)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (val &gt; pivot) &#123;</span><br><span class="line">      right.push(val)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> quickSort(left).concat(middle, quickSort(right))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>高级写法</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition2</span>(<span class="params">ary, start = <span class="number">0</span>, end = ary.length - <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> pivot = ary[start]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> i = start</span><br><span class="line">  <span class="keyword">var</span> j = end</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(i &lt; j) &#123;</span><br><span class="line">    <span class="keyword">while</span>(ary[++i] &lt; pivot);</span><br><span class="line">    <span class="keyword">while</span>(ary[--j] &gt; pivot);</span><br><span class="line">    <span class="keyword">if</span> ()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    swap(ary, i, j)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>()&#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  swap(ary, i, start)</span><br><span class="line"></span><br><span class="line">  partition2(ary, start, i<span class="number">-1</span>)</span><br><span class="line">  partition2(ary, i + <span class="number">1</span>, end)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>最高级写法，面试的时候经常会考到这样的写法，用这种写法满分</li>
-<li>火狐浏览器的源码就是这样写的</li>
-<li>这是最标准的写法，工业级写法</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//comparatop为高级函数，比如案例随机数或者比较函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition</span>(<span class="params">ary, comparator, start = <span class="number">0</span>, end = ary.length - <span class="number">1</span>, </span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (start &gt;= end) &#123; <span class="comment">//要么是同一个元素，要么是之间没有其他元素了</span></span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> pivotIndex = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (end - start + <span class="number">1</span>) + start)<span class="comment">//这个减法刚好是要求的区间</span></span><br><span class="line">  <span class="keyword">var</span> pivot = ary[pivotIndex]</span><br><span class="line"></span><br><span class="line">  swap(ary, pivotIndex, end) <span class="comment">//换回来</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = start - <span class="number">1</span>, j = start; j &lt; end; j++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (comparator(ary[j], pivot) &lt; <span class="number">0</span>) &#123; <span class="comment">//i+1以前的元素都是小于等于中间数的 i 以后的元素都是大于中间数的</span></span><br><span class="line">      i++</span><br><span class="line">      swap(ary, i, j)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  swap(ary, i + <span class="number">1</span>, end) <span class="comment">//把那个随机中间数换回来</span></span><br><span class="line">  partition(ary, comparator, start, i)</span><br><span class="line">  partition(ary, comparator, i + <span class="number">2</span>, end)</span><br><span class="line">  <span class="keyword">return</span> ary</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">ary, comparator = (a,b</span>) =&gt; <span class="title">a</span> - <span class="title">b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> partition(ary, comparator)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h2 id="curry函数"><a href="#curry函数" class="headerlink" title="curry函数"></a>curry函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">f, l = f.length</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args1</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args1.length &gt;= l) &#123;</span><br><span class="line">      <span class="keyword">return</span> f(...args1)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args2</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (args1.length + args2.length &gt;= l) &#123;</span><br><span class="line">          <span class="keyword">return</span> f(...args1, ...args2)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args3</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (args1.length + args2.length + args3.length &gt;= l) &#123;</span><br><span class="line">              <span class="keyword">return</span> f(...args1, ...args2, ...args3)</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args4</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">f, l = f.length</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args.length &gt;= l) &#123;</span><br><span class="line">      <span class="keyword">return</span> f(...args)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> curry(f.bind(<span class="literal">null</span>, ...args), l - args.length)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a,b,c,d</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b + c + d</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ff = curry(f)(<span class="number">1</span>)  ()()()()()</span><br><span class="line"></span><br><span class="line">ff(<span class="number">4</span>) <span class="comment">//10</span></span><br><span class="line">ff(<span class="number">5</span>) <span class="comment">//11</span></span><br></pre></td></tr></table></figure>
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者: <a href="https://2rever.cn">2rever</a>
-            <p>原文链接: <a href="https://2rever.cn/2018/10/23/js快速排序/">https://2rever.cn/2018/10/23/js快速排序/</a>
-            <p>发表日期: <a href="https://2rever.cn/2018/10/23/js快速排序/">October 23rd 2018, 10:29:36 am</a>
+            <p>原文链接: <a href="https://2rever.cn/2018/10/23/js柯里化curry函数实现/">https://2rever.cn/2018/10/23/js柯里化curry函数实现/</a>
+            <p>发表日期: <a href="https://2rever.cn/2018/10/23/js柯里化curry函数实现/">October 23rd 2018, 10:55:31 pm</a>
             <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -436,16 +416,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/10/23/js二叉树遍历方法/" title= js二叉树遍历方法 >
-                    <div class="nextTitle">js二叉树遍历方法</div>
+                <a href= "/2018/10/23/js中bind函数的实现（不考虑this）/" title= bind方法实现（不考虑this） >
+                    <div class="nextTitle">bind方法实现（不考虑this）</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/10/22/node.js自带promisify函数实现/" title= node.js自带promisify函数实现 >
-                    <div class="prevTitle">node.js自带promisify函数实现</div>
+                <a href= "/2018/10/23/js二叉树遍历方法/" title= js二叉树遍历方法 >
+                    <div class="prevTitle">js二叉树遍历方法</div>
                 </a>
             
         </li>
@@ -568,7 +548,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#curry函数"><span class="toc-number">1.</span> <span class="toc-text">curry函数</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
