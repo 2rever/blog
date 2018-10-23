@@ -354,8 +354,17 @@
                 <span>js二叉树遍历方法</span>
         </a>
         <div class="abstract-content">
-            <h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树前序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">preOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    action(root.val)</span><br><span class="line">    preOrderTraverse(root.left,action)</span><br><span class="line">    preOrderTraverse(root.right,action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><ul>
+<li>二叉树前序遍历</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树前序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">preOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    action(root.val)</span><br><span class="line">    preOrderTraverse(root.left,action)</span><br><span class="line">    preOrderTraverse(root.right,action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>二叉树后序遍历</li>
+</ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树后序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">postOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    postOrderTraverse(root.left,action)</span><br><span class="line">    postOrderTraverse(root.right,action)</span><br><span class="line">    action(root.val)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>二叉树中序遍历</li>
+</ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树中序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">midOrderTraverse</span>(<span class="params">root,action = console.log</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root) &#123;</span><br><span class="line">    midOrderTraverse(root.left,action)</span><br><span class="line">    action(root.val)</span><br><span class="line">    midOrderTraverse(root.right,action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h2><ul>
 <li>广度优先遍历是从二叉树的第一层（根结点）开始，自上至下逐层遍历；在同一层中，按照从左到右的顺序对结点逐一访问。<br>实现：
@@ -610,12 +619,6 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
