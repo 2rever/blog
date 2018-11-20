@@ -364,6 +364,58 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/11/20/数组的结构赋值/" >
+            
+                <span>数组的结构赋值</span>
+        </a>
+        <div class="abstract-content">
+            
+数组的结构赋值 
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182// 1. 数组对应的解构赋值let a = 1, b = 2 , c = 3;console.log('a :', a);console.log('b :', b);console.log('c :', c);let a = 1;let b = 2;let c...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/20</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/11/20/let以及const笔记/" >
+            
+                <span>let以及const笔记</span>
+        </a>
+        <div class="abstract-content">
+            let 及 const 
+
+let
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475// &#123;//   var a = 10;//   console.log(a); //=&gt;  10// &#125;// console.log(a); // a =&gt; 10// 变量提升和函数提升fun();function fun() &#123; ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/20</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/11/05/健身计划/" >
             
                 <span>健身计划</span>
@@ -681,55 +733,6 @@ height:50vh;
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/22/node.js自带promisify函数实现/" >
-            
-                <span>node.js自带promisify函数实现</span>
-        </a>
-        <div class="abstract-content">
-            123456789101112131415161718192021// 把基于回调的函数转为基于promisefunction promisify(f) &#123;  //返回一个函数收集参数  return function(...args) &#123;    return new Promise((res,rej) =&gt; &#123;      f(...args,(err,data) =&gt; &#123;        if(err)&#123;          rej(err)        &#125;else &#123;          res(data)...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/22</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/12/二分查找的笔记/" >
-            
-                <span>二分查找的笔记</span>
-        </a>
-        <div class="abstract-content">
-            
-递归写法
-
-1234567891011121314151617function binarySearch(data, dest, start, end)&#123;    var end = end || data.length - 1,    start = start || 0,    middle = Math.floor((start + end) / 2);    // 递归完成条件    if(data[middle] == dest)&#123;        return middle;    &#125;    // 条件判断进行不同的递归    if(dest &l...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/12</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
@@ -1037,9 +1040,49 @@ height:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 13
+        Total : 15
         </div>
         <!-- search  -->
         
@@ -1055,7 +1098,27 @@ height:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/let以及const笔记/" >let以及const笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/数组的结构赋值/" >数组的结构赋值</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/05</span><a class="archive-post-title" href= "/2018/11/05/健身计划/" >健身计划</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js选择排序/" >js选择排序</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
         </li>
     
     
@@ -1070,22 +1133,12 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js选择排序/" >js选择排序</a>
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js中bind函数的实现（不考虑this）/" >bind方法实现（不考虑this）</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js柯里化curry函数实现/" >js柯里化curry函数实现</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js中bind函数的实现（不考虑this）/" >bind方法实现（不考虑this）</a>
         </li>
     
     
