@@ -349,6 +349,32 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/02/28/如何在循环中调用异步函数/" >
+            
+                <span>在循环中调用异步函数</span>
+        </a>
+        <div class="abstract-content">
+            
+如何在循环中调用异步函数
+
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647// 预先设定一个数组const arr = [1,2,3,4,5]// forEach是并行执行的，并不会等待await返回的结果，同 Promise.all()// 加不加上 async  await 是一样的arr.forEach(async (item) =&gt; &#123;	await delay(item)&#125;)// 要执行串行执行的要用for循环来执行，并且使用aw...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/11/21/数组对象排序/" >
             
                 <span>数组对象的排序</span>
@@ -683,29 +709,6 @@ let
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/23/js柯里化curry函数实现/" >
-            
-                <span>js柯里化curry函数实现</span>
-        </a>
-        <div class="abstract-content">
-            curry函数123456789101112131415161718192021222324252627282930313233343536373839404142function curry(f, l = f.length) &#123;  return function(...args1) &#123;    if (args1.length &gt;= l) &#123;      return f(...args1)    &#125; else &#123;      return function(...args2) &#123;        if (args1.lengt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
@@ -986,9 +989,43 @@ let
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 16
+        Total : 18
         </div>
         <!-- search  -->
         
@@ -998,6 +1035,20 @@ let
     
     
     
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href= "/2019/02/28/如何在循环中调用异步函数/" >在循环中调用异步函数</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
@@ -1009,12 +1060,12 @@ let
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/let以及const笔记/" >let以及const笔记</a>
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/数组的结构赋值/" >数组的结构赋值</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/数组的结构赋值/" >数组的结构赋值</a>
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/let以及const笔记/" >let以及const笔记</a>
         </li>
     
     
@@ -1029,7 +1080,7 @@ let
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js归并排序/" >js归并排序</a>
         </li>
     
     
@@ -1039,7 +1090,7 @@ let
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js归并排序/" >js归并排序</a>
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
         </li>
     
     
@@ -1080,6 +1131,11 @@ let
     
         <li class="archive-post-item">
             <span class="archive-post-date">08/12</span><a class="archive-post-title" href= "/2018/08/12/Hexo博客添加评论功能/" >这是我的第一篇文章</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/html、css命名规范/" >html和css的命名规范</a>
         </li>
     
     </div>

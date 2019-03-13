@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>这是我的第一篇文章 · 2rever的前端小站</title>
+    <title>html和css的命名规范 · 2rever的前端小站</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -220,7 +220,7 @@
                 <a href="/" >2rever的前端小站</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">这是我的第一篇文章</a>
+                <a href="#" class="post-name">html和css的命名规范</a>
             </div>
     </div>
     
@@ -252,7 +252,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            这是我的第一篇文章
+            html和css的命名规范
             <!-- 404 -->
             
         </h1>
@@ -271,12 +271,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">134</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">1,212</span> / Reading time: <span class="post-count">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/08/12</span>
+                    <span class="post-intro-time">2018/07/19</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -400,15 +400,57 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="Hexo博客添加valine评论功能"><a href="#Hexo博客添加valine评论功能" class="headerlink" title="Hexo博客添加valine评论功能"></a>Hexo博客添加valine评论功能</h2><h3 id="增加评论功能"><a href="#增加评论功能" class="headerlink" title="增加评论功能"></a>增加评论功能</h3><p>我原来以为添加评论是一件很麻烦的事情，其实就是在LeanCloud上注册账号，获取appId和appKey，然后在themes目录下自己选用的主题目录下，找到_config.yml文件，找到valine字段，把下文<br>xxx字段替换为valine官网上设置里面获取的值填进去就完了，由于本主题已经集成多种非后端评论系统，所以直接开箱即用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">valine_appId: xxx</span><br><span class="line">valine_appKey: xxx</span><br></pre></td></tr></table></figure></p>
-
+        <ul>
+<li>html和css的命名规范<h3 id="语义化html标签"><a href="#语义化html标签" class="headerlink" title="语义化html标签"></a>语义化html标签</h3></li>
+<li>语义化html元素不仅有利于代码维护，还利于网页的SEO<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span>  //头部</span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span><span class="tag">&lt;/<span class="name">nav</span>&gt;</span>  //导航</span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span><span class="tag">&lt;/<span class="name">aside</span>&gt;</span>  //一边</span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span>  //文章</span><br><span class="line">  <span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span>   //部分</span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span>  //页脚</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Css命名规范"><a href="#Css命名规范" class="headerlink" title="Css命名规范"></a>Css命名规范</h3><h4 id="BEM规范"><a href="#BEM规范" class="headerlink" title="BEM规范"></a>BEM规范</h4><ul>
+<li><p>BEM 是一种基于组件的命名方法，它的基本思想是将用户界面划分成独立的模块，即使是复杂的用户界面，也能让开发过程变得简单、快速。并且可以在一定程度上提高代码的可复用性，而不用纯粹的复制粘贴。</p>
+</li>
+<li><p>BEM 的意思就模块（Block. 、元素（Element. 、修饰符（Modifier. ，使用这种命名方式可以让 CSS 的类名变得有实际意义且能自我解释，具有更高的开发友好性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Block - 模块，名字的单词之间用 `-` 符号连接</span><br><span class="line">Element - 元素，模块中的子元素，用 `__` 符号连接</span><br><span class="line">Modifier - 修饰符，表示父元素或子元素的其他形态，用 `--` 符号连接</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在没用 BEM 之前，我们可能会这样组织 CSS 类名：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- S Search Bar 模块 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"search-bar"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"input"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- / input 输入框 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- / button 搜索按钮 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- E Search Bar 模块 --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>上述写法虽然也给 class 赋予了一定的语义，但容易产生样式冲突的情况。</p>
+<p>用 BEM 命名重写之后：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- S Search Bar 模块 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"search-bar"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"search-form__input"</span>/&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- / input 输入框子元素 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"search-form__button"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- / button 搜索按钮子元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- E Search Bar 模块 --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这样命名的好处是，模块语义化了，便于后期的维护，而且减少了 CSS 样式的层层嵌套，提升了网页的渲染效率。</p>
+<p>通常在开发中使用 BEM 命名方法，会搭配 CSS 的预处理语言，如 SCSS 等。这可以一定程度上解决手写冗长命名的繁琐。<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下是 SCSS 代码</span></span><br><span class="line"><span class="selector-class">.search-bar</span> &#123;</span><br><span class="line">  &amp;__input &#123; ... &#125;</span><br><span class="line">  &amp;__button &#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>使用凹凸实验室的 改造版BEM规范。</li>
+<li><p>为了进一步简化 CSS 的命名，我们凹凸实验室团队推广的 CSS 命名规范并不严格遵循 BEM 规范，不强制使用两个下划线「_ _ 」来分隔 B 和 E，而 E 和 M 之间也不一定要用两个中划线做分隔「- -」。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app_market_answer"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app_market_secheader"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app_market_answer_list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app_market_answer_item"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app_market_answer_itop"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app_market_answer_imid"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">class</span>=<span class="string">"app_market_answer_ibtn"</span>&gt;</span>去围观<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="前端布局命名规范"><a href="#前端布局命名规范" class="headerlink" title="前端布局命名规范"></a>前端布局命名规范</h3></li>
+<li><p>前端布局规范细则</p>
+</li>
+</ul>
+<h3 id="命名规范："><a href="#命名规范：" class="headerlink" title="命名规范："></a>命名规范：</h3><h4 id="基本要求："><a href="#基本要求：" class="headerlink" title="基本要求："></a>基本要求：</h4><ol>
+<li>文件编码统一使用 UTF-8 编码；</li>
+<li>命名时以符合语义为主要参考指标，CSS属性书写规范，采用统一风格及命名方法；</li>
+<li>结构清晰，层级关系明朗，以不超过三级为标准；</li>
+<li>同一表现形式的样式要求可重复利用，模块组件类的样式要求可整体外部移植；</li>
+<li>编写 CSS 的时候，应当避免使用CSS Hack，能不用则不用。</li>
+<li>所有页面默认都针对Firefox 等最接近标准的浏览器进行设计，然后使用 IE 特有条件注释功能进行针对性修正。</li>
+<li>请使用英文进行命名，尽量避免使用拼音。命名要求具有可读性，尽量避免使用缩写。命名虽然允许数字，但应尽量避免使用数字命名。</li>
+</ol>
+<h4 id="命名方法-要求采用统一的命名方法。常用命名方法有："><a href="#命名方法-要求采用统一的命名方法。常用命名方法有：" class="headerlink" title="命名方法 要求采用统一的命名方法。常用命名方法有："></a>命名方法 要求采用统一的命名方法。常用命名方法有：</h4><ol>
+<li>连写式命名法，如：helloworld</li>
+<li>中线命名法，如：hello-world（目前采用此方法的较多，建议采用. </li>
+<li>下划线命名法，如：hello_world</li>
+<li>骆驼命名法，如：helloWorld</li>
+<li>帕斯卡命名法，如：HelloWorld</li>
+<li>其他方法。</li>
+</ol>
+<h4 id="样式文件命名规范-如："><a href="#样式文件命名规范-如：" class="headerlink" title="样式文件命名规范 如："></a>样式文件命名规范 如：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">全局的：global.css；</span><br><span class="line">主要的：master.css；</span><br><span class="line">布局、版面：layout.css；</span><br><span class="line">专栏：columns.css；</span><br><span class="line">文字：font.css；</span><br><span class="line">打印样式：print.css；</span><br><span class="line">主题：themes.css；</span><br><span class="line">补丁：pacth.css；</span><br><span class="line">格式化浏览器：base.css等。</span><br></pre></td></tr></table></figure>
+<h4 id="ID及Class命名常用名称"><a href="#ID及Class命名常用名称" class="headerlink" title="ID及Class命名常用名称"></a>ID及Class命名常用名称</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">页头：header</span><br><span class="line">登录条：login-bar</span><br><span class="line">标志：logo</span><br><span class="line">侧栏：side-bar</span><br><span class="line">广告：banner</span><br><span class="line">导航：nav</span><br><span class="line">子导航：sub-nav</span><br><span class="line">菜单：menu</span><br><span class="line">子菜单：sub-menu</span><br><span class="line">搜索：search</span><br><span class="line">滚动：scroll</span><br><span class="line">页面主体：main</span><br><span class="line">内容：content</span><br><span class="line">标签页：tab</span><br><span class="line">文章列表：list</span><br><span class="line">提示信息：msg</span><br><span class="line">小技巧：tips</span><br><span class="line">栏目标题：title</span><br><span class="line">加入：joinus</span><br><span class="line">指南：guild</span><br><span class="line">服务：service</span><br><span class="line">热点：hot</span><br><span class="line">新闻：news</span><br><span class="line">下载：download</span><br><span class="line">注册：regsiter</span><br><span class="line">状态：status</span><br><span class="line">按钮：btn</span><br><span class="line">投票：vote</span><br><span class="line">合作伙伴：partner</span><br><span class="line">友情链接：friendlink</span><br><span class="line">版权：copyright</span><br><span class="line">外套：wrap</span><br><span class="line">页脚：footer</span><br><span class="line">标题：title</span><br><span class="line">顶导航：top-nav(mini-nav)</span><br></pre></td></tr></table></figure>
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者: <a href="https://2rever.cn">2rever</a>
-            <p>原文链接: <a href="https://2rever.cn/2018/08/12/Hexo博客添加评论功能/">https://2rever.cn/2018/08/12/Hexo博客添加评论功能/</a>
-            <p>发表日期: <a href="https://2rever.cn/2018/08/12/Hexo博客添加评论功能/">August 12th 2018, 12:02:06 pm</a>
+            <p>原文链接: <a href="https://2rever.cn/2018/07/19/html、css命名规范/">https://2rever.cn/2018/07/19/html、css命名规范/</a>
+            <p>发表日期: <a href="https://2rever.cn/2018/07/19/html、css命名规范/">July 19th 2018, 8:33:58 pm</a>
             <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -417,17 +459,12 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/09/30/js深浅拷贝/" title= js里的对象的深浅拷贝 >
-                    <div class="nextTitle">js里的对象的深浅拷贝</div>
+                <a href= "/2018/08/12/Hexo博客添加评论功能/" title= 这是我的第一篇文章 >
+                    <div class="nextTitle">这是我的第一篇文章</div>
                 </a>
             
         </li>
         <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/07/19/html、css命名规范/" title= html和css的命名规范 >
-                    <div class="prevTitle">html和css的命名规范</div>
-                </a>
             
         </li>
     </ul>
@@ -549,7 +586,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo博客添加valine评论功能"><span class="toc-number">1.</span> <span class="toc-text">Hexo博客添加valine评论功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#增加评论功能"><span class="toc-number">1.1.</span> <span class="toc-text">增加评论功能</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#语义化html标签"><span class="toc-number">1.</span> <span class="toc-text">语义化html标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Css命名规范"><span class="toc-number">2.</span> <span class="toc-text">Css命名规范</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BEM规范"><span class="toc-number">2.1.</span> <span class="toc-text">BEM规范</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端布局命名规范"><span class="toc-number">3.</span> <span class="toc-text">前端布局命名规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命名规范："><span class="toc-number">4.</span> <span class="toc-text">命名规范：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本要求："><span class="toc-number">4.1.</span> <span class="toc-text">基本要求：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命名方法-要求采用统一的命名方法。常用命名方法有："><span class="toc-number">4.2.</span> <span class="toc-text">命名方法 要求采用统一的命名方法。常用命名方法有：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样式文件命名规范-如："><span class="toc-number">4.3.</span> <span class="toc-text">样式文件命名规范 如：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ID及Class命名常用名称"><span class="toc-number">4.4.</span> <span class="toc-text">ID及Class命名常用名称</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
