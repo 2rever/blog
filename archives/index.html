@@ -349,6 +349,29 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/03/30/实现vue双向绑定/" >
+            
+                <span>实现Vue双向绑定</span>
+        </a>
+        <div class="abstract-content">
+            Vue双向绑定的实现es5123456789101112131415161718192021222324252627282930313233343536&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt;  &lt;meta charset="UTF-8"&gt;  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;  &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/30</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/02/28/如何在循环中调用异步函数/" >
             
                 <span>在循环中调用异步函数</span>
@@ -674,30 +697,6 @@ let
             归并排序
 第一个工业级别的算法
 归并排序没有办法就地排序12345678910111213141516171819202122function mergeSort(ary) &#123;  if (ary.length &lt; 2) &#123;    return ary.slice()  &#125;  var mid = Math.floor(ary.length / 2)  var left = mergeSort(ary.slice(0, mid))  var right = mergeSort(ary.slice(mid))  var result = []  while(...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/23/js中bind函数的实现（不考虑this）/" >
-            
-                <span>bind方法实现（不考虑this）</span>
-        </a>
-        <div class="abstract-content">
-            bind函数123456//bind的实现function bind(f,...fixedArgs)&#123;  return function(...args)&#123;    return f(...fixedArgs,...args)  &#125;&#125;
-123456789//bind原来的实现function bind(f) &#123;  var fixedArgs = Array.from(arguments).slice(1)  return function() &#123;    var args = Array.from(arguments)    var...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1041,9 +1040,12 @@ let
     
     
     
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 18
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -1056,6 +1058,11 @@ let
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2019/03/30/实现vue双向绑定/" >实现Vue双向绑定</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1093,11 +1100,6 @@ let
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js选择排序/" >js选择排序</a>
         </li>
     
@@ -1109,6 +1111,11 @@ let
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js快速排序/" >js快速排序</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
         </li>
     
     
