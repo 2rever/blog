@@ -271,7 +271,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">371</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">369</span> / Reading time: <span class="post-count">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,20 +401,12 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <h3 id="xss攻击"><a href="#xss攻击" class="headerlink" title="xss攻击"></a>xss攻击</h3><ul>
-<li>XSS攻击全称跨站脚本攻击</li>
-</ul>
-<ol>
-<li>反射型</li>
-</ol>
-<ul>
+<li>XSS攻击全称跨站脚本攻击<h4 id="反射型"><a href="#反射型" class="headerlink" title="反射型"></a>反射型</h4></li>
 <li>发出请求时，XSS代码出现在url上，作为输入提交到服务器端，服务器端解析响应后，XSS代码随响应内容一起传回给浏览器，最后浏览器解析执行XSS代码。这个过程像一次反射，故叫反射型XSS。</li>
 <li>通过诱导链接等手段在url上拼接一段脚本，这段脚本可能是<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">自动执行</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"null"</span>  <span class="attr">onerror</span>=<span class="string">"xxx"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"></span><br><span class="line">触发执行</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">onclick</span>=<span class="string">"xxx"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">内嵌入广告、攻击页面、csrf引诱页面等</span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"xxx"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol start="2">
-<li>存储型</li>
-</ol>
-<ul>
+<h4 id="存储型"><a href="#存储型" class="headerlink" title="存储型"></a>存储型</h4><ul>
 <li>存储型XSS 和 反射型XSS的差别仅在于，提交的代码会存储在服务器端（数据库、内存、文件系统等），下次请求目标页面时用再提交XSS代码。</li>
 </ul>
 <h3 id="防范XSS的防御措施"><a href="#防范XSS的防御措施" class="headerlink" title="防范XSS的防御措施"></a>防范XSS的防御措施</h3><h4 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h4><ul>
@@ -574,7 +566,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#xss攻击"><span class="toc-number">1.</span> <span class="toc-text">xss攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防范XSS的防御措施"><span class="toc-number">2.</span> <span class="toc-text">防范XSS的防御措施</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#编码"><span class="toc-number">2.1.</span> <span class="toc-text">编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤"><span class="toc-number">2.2.</span> <span class="toc-text">过滤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#校正"><span class="toc-number">2.3.</span> <span class="toc-text">校正</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Http-only"><span class="toc-number">2.4.</span> <span class="toc-text">Http-only</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#xss攻击"><span class="toc-number">1.</span> <span class="toc-text">xss攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#反射型"><span class="toc-number">1.1.</span> <span class="toc-text">反射型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#存储型"><span class="toc-number">1.2.</span> <span class="toc-text">存储型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防范XSS的防御措施"><span class="toc-number">2.</span> <span class="toc-text">防范XSS的防御措施</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#编码"><span class="toc-number">2.1.</span> <span class="toc-text">编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤"><span class="toc-number">2.2.</span> <span class="toc-text">过滤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#校正"><span class="toc-number">2.3.</span> <span class="toc-text">校正</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Http-only"><span class="toc-number">2.4.</span> <span class="toc-text">Http-only</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -587,6 +579,8 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -890,12 +884,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/let以及const笔记/" >let以及const笔记</a>
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/数组的结构赋值/" >数组的结构赋值</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/数组的结构赋值/" >数组的结构赋值</a>
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/let以及const笔记/" >let以及const笔记</a>
         </li>
     
     
@@ -905,7 +899,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js快速排序/" >js快速排序</a>
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
         </li>
     
     
@@ -915,22 +909,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js选择排序/" >js选择排序</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js柯里化curry函数实现/" >js柯里化curry函数实现</a>
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js快速排序/" >js快速排序</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js中bind函数的实现（不考虑this）/" >bind方法实现（不考虑this）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js柯里化curry函数实现/" >js柯里化curry函数实现</a>
         </li>
     
     
