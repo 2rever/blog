@@ -271,7 +271,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">346</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">371</span> / Reading time: <span class="post-count">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -428,6 +428,9 @@ height:50vh;
 <li>避免直接对HTML Entity解码（不然之前的编码就没用了，在解码过程中也是解析）</li>
 <li>使用DOM Parse转换，矫正不配对的DOM标签</li>
 </ul>
+<h4 id="Http-only"><a href="#Http-only" class="headerlink" title="Http-only"></a>Http-only</h4><ul>
+<li>服务端设置cookie中加入ttp-only请求头，防止js代码获取特定的cookie</li>
+</ul>
 
     </article>
     <!-- license  -->
@@ -571,7 +574,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#xss攻击"><span class="toc-number">1.</span> <span class="toc-text">xss攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防范XSS的防御措施"><span class="toc-number">2.</span> <span class="toc-text">防范XSS的防御措施</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#编码"><span class="toc-number">2.1.</span> <span class="toc-text">编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤"><span class="toc-number">2.2.</span> <span class="toc-text">过滤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#校正"><span class="toc-number">2.3.</span> <span class="toc-text">校正</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#xss攻击"><span class="toc-number">1.</span> <span class="toc-text">xss攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防范XSS的防御措施"><span class="toc-number">2.</span> <span class="toc-text">防范XSS的防御措施</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#编码"><span class="toc-number">2.1.</span> <span class="toc-text">编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤"><span class="toc-number">2.2.</span> <span class="toc-text">过滤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#校正"><span class="toc-number">2.3.</span> <span class="toc-text">校正</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Http-only"><span class="toc-number">2.4.</span> <span class="toc-text">Http-only</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -584,10 +587,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -916,12 +915,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js选择排序/" >js选择排序</a>
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js选择排序/" >js选择排序</a>
         </li>
     
     
