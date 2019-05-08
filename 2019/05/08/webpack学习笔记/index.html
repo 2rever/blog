@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>react 虚拟DOM和diff算法的笔记 · 2rever的前端小站</title>
+    <title>webpack学习笔记 · 2rever的前端小站</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -220,7 +220,7 @@
                 <a href="/" >2rever的前端小站</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">react 虚拟DOM和diff算法的笔记</a>
+                <a href="#" class="post-name">webpack学习笔记</a>
             </div>
     </div>
     
@@ -252,7 +252,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            react 虚拟DOM和diff算法的笔记
+            webpack学习笔记
             <!-- 404 -->
             
         </h1>
@@ -271,12 +271,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">630</span> / Reading time: <span class="post-count">2 min</span></span>
+                        <span>Word count: <span class="post-count">1,093</span> / Reading time: <span class="post-count">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/10/11</span>
+                    <span class="post-intro-time">2019/05/08</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -400,12 +400,60 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="几种更改数据算法的区别"><a href="#几种更改数据算法的区别" class="headerlink" title="几种更改数据算法的区别"></a>几种更改数据算法的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">1. state 数据</span><br><span class="line">2. JSX 模板</span><br><span class="line">3. 数据 + 模板  结合，生成真实DOM，来显示</span><br><span class="line">4. state发生改变</span><br><span class="line">5. 数据 + 模板 结合，生成真实的DOM，替换原始DOM</span><br><span class="line"></span><br><span class="line">* 缺陷：</span><br><span class="line">  第一次生成了一个完整的DOM片段</span><br><span class="line">  第二次生成了一个完整的DOM片段</span><br><span class="line">  第二次的DOM替换第一次的DOM</span><br><span class="line">  直接操作DOM元素，消耗大量的性能</span><br><span class="line"></span><br><span class="line">============================</span><br><span class="line"></span><br><span class="line">1.state 数据</span><br><span class="line">2. JSX 模板</span><br><span class="line">3. 数据 + 模板  结合，生成真实DOM，并不直接替换原始的DOM</span><br><span class="line">4. state 发生改变</span><br><span class="line">5. 数据 + 模板 结合，生成真实的DOM，并不直接替换原始DOM</span><br><span class="line">6. 新的DOM（DocumentFragment） 和原始的DOM 作比对，找差异</span><br><span class="line">7. 找出input 框发生了变化</span><br><span class="line">8. 只用新的DOM中的input 元素，替换掉老的DOM的input元素</span><br><span class="line"></span><br><span class="line">* 缺陷： </span><br><span class="line">  性能的提升并不明显，虽然替换input元素节约了一部分性能，但是直接在新旧DOM</span><br><span class="line">  做对比，还是有一些性能上的损耗。</span><br><span class="line"></span><br><span class="line">============================</span><br><span class="line"></span><br><span class="line">1.state 数据</span><br><span class="line">2. JSX 模板</span><br><span class="line">3.生成虚拟DOM（虚拟DOM就是一个JS对象，用来描述真实DOM）(损耗性能)</span><br><span class="line">4. 用虚拟DOM的结构，生成真实的DOM，来显示</span><br><span class="line">5. state 发生变化</span><br><span class="line">6. 数据 + 模板 生成新的虚拟DOM</span><br><span class="line">7.比较原始虚拟DOM 和新的虚拟DOM区别，找到两者的区别（极大提升了性能）</span><br><span class="line">8.直接操作DOM，改变变化的内容</span><br><span class="line"></span><br><span class="line">* 优点：</span><br><span class="line">  1.性能提升了。</span><br><span class="line">  2.它使得跨端应用得以实现 React Native</span><br><span class="line"></span><br><span class="line">============================</span><br></pre></td></tr></table></figure>
-<h3 id="setState优化"><a href="#setState优化" class="headerlink" title="setState优化"></a>setState优化</h3><ul>
-<li>setState是异步的，如果连续调用多次setState，react会合并成一次，来节约调用多次setState做的性能消耗。</li>
+        <h3 id="webpack学习笔记"><a href="#webpack学习笔记" class="headerlink" title="webpack学习笔记"></a>webpack学习笔记</h3><ul>
+<li>webpack学习笔记</li>
 </ul>
-<h3 id="diff-算法的同层比对"><a href="#diff-算法的同层比对" class="headerlink" title="diff 算法的同层比对"></a>diff 算法的同层比对</h3><ul>
-<li>diff算法只比对一层DOM元素，只要一层不一样，则重新生成一次真实DOM，不会继续向下做对比，并替换原来的真实DOM元素，可能会造成DOM重新渲染的浪费，但是因为是同层比对，速度会比较快。而且在虚拟DOM当中设置key值，会对比前后两个虚拟DOM的key值会很快对比出来，当用index来作为key的时候，index是不稳定的，所以尽量不要用index来作为key值，来提升虚拟DOM对比的性能。</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化项目</span></span><br><span class="line">npm init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在项目里安装webpack</span></span><br><span class="line">npm i webpack webpack-cli -D</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看webpack 的版本号</span></span><br><span class="line">npm info webpack</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装特定版本的webpack</span></span><br><span class="line">npm i webpack@4.16.5 webpack-cli -D</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行项目内部命令</span></span><br><span class="line">npx webpack -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以 webpackconfig.js 这个配置文件为webpack配置文件</span></span><br><span class="line">npx webpack --config webpackconfig.js</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建 <code>webpack.config.js</code> </li>
+<li>文件为webpack打包配置文件</li>
+</ul>
+<ul>
+<li>配置文件说明</li>
+<li><p>webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> CleanWebpackPlugin = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	<span class="comment">// 如果是development 则不会压缩，如果是production 为压缩的代码</span></span><br><span class="line">	mode: <span class="string">'development'</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 它是一个映射关系，它知道打包出来的文件实际上对应源代码的哪一段</span></span><br><span class="line">	<span class="comment">// devtool: 'cheap-module-eval-source-map',</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 从哪个文件开始打包，即入口文件</span></span><br><span class="line">	entry: &#123;</span><br><span class="line">		main: <span class="string">'./src/index.js'</span>,</span><br><span class="line">		<span class="comment">// entry: './src/index.js'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	devServer:&#123;</span><br><span class="line">		<span class="comment">// 监听服务器的路径</span></span><br><span class="line">		contentBase: <span class="string">'./dist'</span>,</span><br><span class="line">		<span class="comment">// 监听命令执行打开页面</span></span><br><span class="line">		open: <span class="literal">true</span>,</span><br><span class="line">		<span class="comment">// 设置服务器开启端口</span></span><br><span class="line">		port: <span class="number">8999</span>,</span><br><span class="line">		<span class="comment">// 开启hot module replacement</span></span><br><span class="line">		hot: <span class="literal">true</span>,</span><br><span class="line">		<span class="comment">// 即使不生效，浏览器也不自动刷新</span></span><br><span class="line">		hotOnly: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">// 设置代理</span></span><br><span class="line">		<span class="comment">// proxy: &#123;</span></span><br><span class="line">		<span class="comment">// 	'/api':'http://localhost:3000'</span></span><br><span class="line">		<span class="comment">// &#125;</span></span><br><span class="line">	&#125; ,</span><br><span class="line">	<span class="built_in">module</span>: &#123;</span><br><span class="line">		rules: [&#123;</span><br><span class="line">			<span class="comment">// 字体文件</span></span><br><span class="line">			test: <span class="regexp">/\.(eot|ttf|svg)$/</span>,</span><br><span class="line">			use: &#123;</span><br><span class="line">				loader: <span class="string">'file-loader'</span>,</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,&#123;</span><br><span class="line">			test: <span class="regexp">/\.(png|jpg|gif)$/</span>,</span><br><span class="line">			use: &#123;</span><br><span class="line">				loader: <span class="string">'url-loader'</span>,</span><br><span class="line">				<span class="comment">// 占位符</span></span><br><span class="line">				options: &#123;</span><br><span class="line">					name: <span class="string">'[name].[ext]'</span>,</span><br><span class="line">					<span class="comment">// 打包到文件夹</span></span><br><span class="line">					outputPath: <span class="string">'images/'</span>,</span><br><span class="line">					<span class="comment">// 小于limit大小的字节就转成base64</span></span><br><span class="line">					limit: <span class="number">2048</span></span><br><span class="line">				&#125;,</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;, &#123;</span><br><span class="line">			test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">			use: [<span class="string">'style-loader'</span>, </span><br><span class="line">			&#123;</span><br><span class="line">				loader: <span class="string">'css-loader'</span>,</span><br><span class="line">				options: &#123;</span><br><span class="line">					<span class="comment">// 在@import引用的文件也要走两个loader</span></span><br><span class="line">					importLoaders:<span class="number">2</span>,</span><br><span class="line">					<span class="comment">// 模块化打包</span></span><br><span class="line">					modules: <span class="literal">true</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;, </span><br><span class="line">			<span class="comment">// 安装的时候同时要安装 less less-loader</span></span><br><span class="line">			<span class="string">'less-loader'</span>, </span><br><span class="line">			<span class="comment">// 需要配置postcss.config.js文件引入autoprefixer等工具</span></span><br><span class="line">			<span class="string">'postcss-loader'</span>]</span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">// htmlWebpackPlugin会在打包结束后，自动生成一个html文件，并把打包生成的js自动引入到这个html当中</span></span><br><span class="line">	plugins: [<span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">		template: <span class="string">'./src/index.html'</span></span><br><span class="line">	&#125;),</span><br><span class="line">	<span class="keyword">new</span> CleanWebpackPlugin(),</span><br><span class="line">	<span class="comment">// 使用插件webpack自带HotModuleReplacementPlugin</span></span><br><span class="line">	<span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">],</span><br><span class="line">	<span class="comment">// 输出的文件</span></span><br><span class="line">	output: &#123;</span><br><span class="line">		publicPath: <span class="string">'/'</span>,</span><br><span class="line">		<span class="comment">// 打包输出的js的名字</span></span><br><span class="line">		filename: <span class="string">'[name].js'</span>,</span><br><span class="line">		<span class="comment">// 打包输出的所在绝对路径</span></span><br><span class="line">		path: path.resolve(__dirname, <span class="string">'dist'</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>热加载</p>
+</li>
+</ul>
+<ol>
+<li><code>webpack --watch</code></li>
+<li><code>webpack-dev-serve</code></li>
+<li><p><code>node server.js</code> </p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> webpack =  <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">const</span> webpackMiddleweare = <span class="built_in">require</span>(<span class="string">'webpack-dev-middleware'</span>)</span><br><span class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">'./webpack.config.js'</span>)</span><br><span class="line"><span class="comment">// 编译器，监听改变打包</span></span><br><span class="line"><span class="keyword">const</span> complier = webpack(config)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line">app.use(webpackMiddleweare(complier,&#123;</span><br><span class="line">	publicPath: config.output.publicPath</span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>,() =&gt; &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'server is running!!'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>HMR 代码的时候需要</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">module</span>.hot) &#123;</span><br><span class="line">	<span class="built_in">module</span>.hot.accept(<span class="string">'./number'</span>,() =&gt;&#123;</span><br><span class="line">		<span class="built_in">document</span>.body.removeChild(<span class="built_in">document</span>.querySelect(<span class="string">'#number'</span>))</span><br><span class="line">		number()</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>babel</p>
+</li>
+<li>安装 <code>babel-loader</code>新增webpack和babel的通信</li>
+<li>安装 <code>@babel/core</code>和<code>@babel/preset-env</code>把es5转换为es6</li>
+<li><p>安装 <code>@babel/polyfill</code> 并 主文件 <code>import &#39;@babel/polyfill&#39;</code> 把没有的函数补充进去，但是会存在主文件打包出来很大，且会污染全局变量</p>
+<ul>
+<li>之前用<code>import &#39;@babel/polyfill&#39;</code></li>
+<li><p>之后用 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// import "core-js/stable"</span></span><br><span class="line"><span class="comment">// import "regenerator-runtime/runtime"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>但是都可以，但是一定要配 <code>corejs:3</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">			test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">			<span class="comment">// 排除在外的文件</span></span><br><span class="line">			exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">			<span class="comment">// babel-loader只是webpack和babel之间的通信，但是不能把es6代码转换成es5代码</span></span><br><span class="line">			loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">			options: &#123;</span><br><span class="line">				<span class="comment">// 配置babel使按需加载</span></span><br><span class="line">				presets: [[<span class="string">'@babel/preset-env'</span>,&#123;</span><br><span class="line">					<span class="comment">// // 目标浏览器是否需要babel转义</span></span><br><span class="line">					<span class="comment">// targets: &#123;</span></span><br><span class="line">					<span class="comment">// 	chrome: "67"</span></span><br><span class="line">					<span class="comment">// &#125;,</span></span><br><span class="line">					<span class="comment">// 按需加载的配置,一定要配置corejs:3不然报错</span></span><br><span class="line">					useBuiltIns: <span class="string">'usage'</span>,</span><br><span class="line">					corejs: <span class="number">3</span>,</span><br><span class="line">				&#125;]]</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>如果是打包类库就不能这样配置babel</li>
+<li><code>npm i @babel/runtime -S</code></li>
+<li><p><code>babel-loader</code>里面要配置<code>options</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"plugins"</span>: [[<span class="string">"@babel/plugin-transform-runtime"</span>,&#123;</span><br><span class="line">	<span class="string">"corejs"</span>:<span class="number">2</span>,</span><br><span class="line">	<span class="string">"helpers"</span>:<span class="literal">true</span>,</span><br><span class="line">	<span class="string">"regenerator"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="string">"useESModules"</span>: <span class="literal">false</span></span><br><span class="line">&#125;]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果配置了 <code>corejs:2</code>，需要安装<code>npm i @babel/runtime-corejs2 -S</code> 且不需要在主要的js里面引用 <code>import &#39;@babel/polyfill&#39;</code>等，原来的会污染全局环境，但是这个runtime会以闭包的形式注入js里</p>
+</li>
+<li><p>如果要配置更多的babel的话，可以新建 <code>.babelrc</code></p>
+</li>
+<li>把options里面的对象放到 <code>babelrc</code>就可以了<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    			<span class="comment">// 配置babel使按需加载</span></span><br><span class="line">				<span class="string">"presets"</span>: [[<span class="string">"@babel/preset-env"</span>,&#123;</span><br><span class="line">					<span class="comment">// // 目标浏览器是否需要babel转义</span></span><br><span class="line">					<span class="comment">// targets: &#123;</span></span><br><span class="line">					<span class="comment">// 	chrome: "67"</span></span><br><span class="line">					<span class="comment">// &#125;,</span></span><br><span class="line">					<span class="comment">// 按需加载的配置,一定要配置corejs:3不然报错</span></span><br><span class="line">					<span class="string">"useBuiltIns"</span>: <span class="string">"usage"</span>,</span><br><span class="line">					<span class="string">"corejs"</span>: <span class="number">3</span>,</span><br><span class="line">				&#125;]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </article>
@@ -413,8 +461,8 @@ height:50vh;
     
         <div class="license-wrapper">
             <p>原文作者: <a href="https://2rever.cn">2rever</a>
-            <p>原文链接: <a href="https://2rever.cn/2018/10/11/react 虚拟DOM和diff算法的笔记/">https://2rever.cn/2018/10/11/react 虚拟DOM和diff算法的笔记/</a>
-            <p>发表日期: <a href="https://2rever.cn/2018/10/11/react 虚拟DOM和diff算法的笔记/">October 11th 2018, 10:57:32 pm</a>
+            <p>原文链接: <a href="https://2rever.cn/2019/05/08/webpack学习笔记/">https://2rever.cn/2019/05/08/webpack学习笔记/</a>
+            <p>发表日期: <a href="https://2rever.cn/2019/05/08/webpack学习笔记/">May 8th 2019, 11:09:22 am</a>
             <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -422,17 +470,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/10/12/二分查找的笔记/" title= 二分查找的笔记 >
-                    <div class="nextTitle">二分查找的笔记</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/09/30/js深浅拷贝/" title= js里的对象的深浅拷贝 >
-                    <div class="prevTitle">js里的对象的深浅拷贝</div>
+                <a href= "/2019/04/01/xss攻击解释及防御/" title= xss攻击解释及防御 >
+                    <div class="prevTitle">xss攻击解释及防御</div>
                 </a>
             
         </li>
@@ -555,7 +598,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#几种更改数据算法的区别"><span class="toc-number">1.</span> <span class="toc-text">几种更改数据算法的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setState优化"><span class="toc-number">2.</span> <span class="toc-text">setState优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#diff-算法的同层比对"><span class="toc-number">3.</span> <span class="toc-text">diff 算法的同层比对</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack学习笔记"><span class="toc-number">1.</span> <span class="toc-text">webpack学习笔记</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
