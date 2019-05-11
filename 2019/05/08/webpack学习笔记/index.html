@@ -271,7 +271,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">2,559</span> / Reading time: <span class="post-count">11 min</span></span>
+                        <span>Word count: <span class="post-count">2,777</span> / Reading time: <span class="post-count">12 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -561,7 +561,15 @@ height:50vh;
 <li>详情可看相关文档<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// replaceLoaders.js</span></span><br><span class="line"><span class="keyword">const</span> loaderUtils = <span class="built_in">require</span>(<span class="string">'loader-utils'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.query)</span><br><span class="line">    <span class="keyword">const</span> options = loaderUtils.getOptions(<span class="keyword">this</span>)</span><br><span class="line">    <span class="keyword">const</span> result =  source.replace(<span class="string">'dell'</span>,options.name)</span><br><span class="line">    <span class="keyword">this</span>.callback(<span class="literal">null</span>,result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="自己编写plugin"><a href="#自己编写plugin" class="headerlink" title="自己编写plugin"></a>自己编写plugin</h3>
+<h3 id="自己编写plugin"><a href="#自己编写plugin" class="headerlink" title="自己编写plugin"></a>自己编写plugin</h3><ul>
+<li>loader是用来处理模块，plugin是某些具体时刻上使用的</li>
+<li><p>编写plugin</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CopyrightWebpackPlugin.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CopyrightWebpackPlugin</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(options) &#123;</span><br><span class="line">        <span class="comment">// console.log('插件被使用了')</span></span><br><span class="line">        <span class="comment">// console.log(options)</span></span><br><span class="line">    &#125;</span><br><span class="line">    apply(compiler) &#123;</span><br><span class="line">        <span class="comment">// 同步就用下面的写法</span></span><br><span class="line">        <span class="comment">// compiler.hooks.compile.tap("CopyrightWebpackPlugin",(compilation) =&gt; &#123;</span></span><br><span class="line">            <span class="comment">// 不需要手动执行cb了</span></span><br><span class="line">        <span class="comment">// &#125;)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 使用emit时刻,因为是异步所以用tapAsync</span></span><br><span class="line">        compiler.hooks.emit.tapAsync(<span class="string">'CopyrightWebpackPlugin'</span>,(compilation,cb) =&gt; &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(compilation.assets)</span><br><span class="line">            <span class="comment">// 新增一个txt文件</span></span><br><span class="line">            compilation.assets[<span class="string">'copyright.txt'</span>] = &#123;</span><br><span class="line">                <span class="comment">// 内容是什么</span></span><br><span class="line">                source: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">'copy right dell lee'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="comment">// 大概的长度大小</span></span><br><span class="line">                size: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">21</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            cb()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = CopyrightWebpackPlugin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后在webpack配置里面引用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> CopyRightWebpackPlugin = <span class="built_in">require</span>(<span class="string">'./plugins/copyright-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">'development'</span>,</span><br><span class="line">    entry: &#123;</span><br><span class="line">        main: <span class="string">'./src/index.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [<span class="keyword">new</span> CopyRightWebpackPlugin()],</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.resolve(__dirname,<span class="string">'dist'</span>),</span><br><span class="line">        filename: <span class="string">'[name].js'</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
     </article>
     <!-- license  -->
     
@@ -974,6 +982,12 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 21
@@ -1041,17 +1055,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js选择排序/" >js选择排序</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js快速排序/" >js快速排序</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js冒泡排序/" >js冒泡排序</a>
         </li>
     
     
