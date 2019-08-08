@@ -5,16 +5,16 @@
 
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="2rever">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="2rever">
     <meta name="keywords" content="2rever的前端小站 | 2rever">
-    <meta name="description" content="">
+    <meta name="description" content>
     <meta name="Cache-Control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>数组的结构赋值 · 2rever的前端小站</title>
     <style type="text/css">
     @font-face {
@@ -68,10 +68,10 @@
 
 </style>
 
-    <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20180721" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180721" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -180,10 +180,10 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href= "/assets/favicon-.ico" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
-    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="icon" href="/assets/favicon-.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
@@ -404,6 +404,7 @@ height:50vh;
 <li>数组的结构赋值 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 数组对应的解构赋值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span> , c = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'c :'</span>, c);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">let</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'c :'</span>, c);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明三个变量</span></span><br><span class="line"><span class="keyword">let</span> [a, b, c] = [<span class="number">1</span>, <span class="number">233</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'c :'</span>, c);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 复杂的解构赋值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [ a, [b], c] = [<span class="number">1</span>, [<span class="number">2</span>], <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'c :'</span>, c);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 越过解析</span></span><br><span class="line"><span class="keyword">let</span> [a, ,b] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 配合展开运算符</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a, [b, ...d], c] = [<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'c :'</span>, c);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'d :'</span>, d);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 如果解构不成功，变量的值就等于undefined。</span></span><br><span class="line"><span class="keyword">let</span> [a, b] = [<span class="number">1</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br><span class="line"></span><br><span class="line"><span class="comment">// a : 1</span></span><br><span class="line"><span class="comment">// b : undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 6. 不完全解构</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [ a, [b], c] = [<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'c :'</span>, c);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 7. 数组的解构赋值：如果等号的右边不是数组，那么将会报错。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a, b] = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> [a, b] = <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> [a, b] = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> [a, b] = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 8. 解构赋值允许指定默认值。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a = <span class="number">9</span>, b = <span class="number">0</span>, c = <span class="number">3</span>] = [ <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'c :'</span>, c);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a = <span class="number">2</span>, b = <span class="number">9</span>] = [<span class="literal">undefined</span>, <span class="number">2</span>]</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 9. 当一个数组成员严格等于undefined，默认值才会生效。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 10. 默认值可以引用解构赋值的其他变量，但该变量必须已经声明</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a = <span class="number">9</span>, b = a] = [<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a :'</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b :'</span>, b);</span><br></pre></td></tr></table></figure>
+
 
     </article>
     <!-- license  -->
@@ -875,6 +876,18 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 22
@@ -932,12 +945,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/let以及const笔记/" >let以及const笔记</a>
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/数组的结构赋值/" >数组的结构赋值</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/数组的结构赋值/" >数组的结构赋值</a>
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2018/11/20/let以及const笔记/" >let以及const笔记</a>
         </li>
     
     
@@ -952,11 +965,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js快速排序/" >js快速排序</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js选择排序/" >js选择排序</a>
         </li>
     
@@ -967,12 +975,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js柯里化curry函数实现/" >js柯里化curry函数实现</a>
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js快速排序/" >js快速排序</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js中bind函数的实现（不考虑this）/" >bind方法实现（不考虑this）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2018/10/23/js柯里化curry函数实现/" >js柯里化curry函数实现</a>
         </li>
     
     
