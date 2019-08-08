@@ -15,7 +15,7 @@
     <meta name="description" content>
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>js柯里化curry函数实现 · 2rever的前端小站</title>
+    <title>少儿编程浅谈 · 2rever的前端小站</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -220,7 +220,7 @@
                 <a href="/" >2rever的前端小站</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">js柯里化curry函数实现</a>
+                <a href="#" class="post-name">少儿编程浅谈</a>
             </div>
     </div>
     
@@ -252,7 +252,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            js柯里化curry函数实现
+            少儿编程浅谈
             <!-- 404 -->
             
         </h1>
@@ -271,12 +271,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">143</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">1,427</span> / Reading time: <span class="post-count">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/10/23</span>
+                    <span class="post-intro-time">2019/08/08</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -400,14 +400,85 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="curry函数"><a href="#curry函数" class="headerlink" title="curry函数"></a>curry函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">f, l = f.length</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args1</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args1.length &gt;= l) &#123;</span><br><span class="line">      <span class="keyword">return</span> f(...args1)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args2</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (args1.length + args2.length &gt;= l) &#123;</span><br><span class="line">          <span class="keyword">return</span> f(...args1, ...args2)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args3</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (args1.length + args2.length + args3.length &gt;= l) &#123;</span><br><span class="line">              <span class="keyword">return</span> f(...args1, ...args2, ...args3)</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args4</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">f, l = f.length</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args.length &gt;= l) &#123;</span><br><span class="line">      <span class="keyword">return</span> f(...args)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> curry(f.bind(<span class="literal">null</span>, ...args), l - args.length)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a,b,c,d</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b + c + d</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ff = curry(f)(<span class="number">1</span>)  ()()()()()</span><br><span class="line"></span><br><span class="line">ff(<span class="number">4</span>) <span class="comment">//10</span></span><br><span class="line">ff(<span class="number">5</span>) <span class="comment">//11</span></span><br></pre></td></tr></table></figure>
+        <ul>
+<li>少儿编程浅谈</li>
+</ul>
+<h3 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h3><ul>
+<li>最近大学的班主任向我咨询少儿编程的问题，作为一个从建筑学毕业，班里唯一一个干编程的人，问我也是情有可原。老师想让五岁的儿子学习一下编程，真应验了那句话，21世纪不会编程就是新世纪的文盲。故晚上花了一点时间了解了一下少儿编程相关领域的问题，权当抛砖引玉，简单的谈一谈少儿编程。</li>
+</ul>
+<h3 id="少儿编程"><a href="#少儿编程" class="headerlink" title="少儿编程"></a>少儿编程</h3><ul>
+<li>编程语言：</li>
+</ul>
+<ol>
+<li><p>Scratch</p>
+<h4 id="语言介绍"><a href="#语言介绍" class="headerlink" title="语言介绍"></a>语言介绍</h4><ul>
+<li><p>Scratch是由麻省理工学院开发的免费儿童编程语言，辅以入门教程，给家长的课程指导和强大的用户社区。没有电脑的情况下，您还可以使用下载好的卡片来学习Scratch编程。</p>
+</li>
+<li><p>Scratch使用模块来让界面可视化，为孩子和家长创造更多直观的体验。你可以将编程组件（如动作，事件和运算符）堆叠在一起。每个模块的形状只允许它与兼容对象组合。例如，“重复循环”的形状就像是一个侧面的“U”，让你知道你需要在循环的开始和结束之间放置这个模块。</p>
+</li>
+<li><p>Scratch还可以用来制作动画和游戏，可以使用Scratch自带的图像和角色，或上传自己的。Scratch可以离线使用，当然，孩子们也可以选择在Scratch的社区在线分享他们的作品。</p>
+</li>
+<li><p>因为Scratch是免费的并且制作很精良，所以它是儿童友好编程的第一个建议，并且Scratch也在影响着其他儿童友好编程语言（如Blockly）。</p>
+<h4 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h4></li>
+<li><p>如果是幼儿园的孩子，建议从 <a href="http://Code.org" target="_blank" rel="noopener">http://Code.org</a> 上的练习开始，了解编程的基本概念，在玩中学习逻辑、循环等。</p>
+</li>
+<li><p>自学Scratch。如果在 <a href="http://code.org" target="_blank" rel="noopener">http://code.org</a> 上的任务都基本上玩过了，那就可以开始学习下Scratch。Scratch初期完全可以自学。家长也可以一起来自学。</p>
+</li>
+</ul>
+</li>
+<li><p>Blockly</p>
+<ul>
+<li>Blockly是谷歌对Scratch的改进，使用了相同的互链模块概念，但它可以用几种不同的编程语言输出代码。目前包括JavasScript，Python，PHP，Lua和Dart。这使得Blockly不仅仅是一种儿童友好编程语言，而是一个可视化编辑器。</li>
+<li>实际上，当你将模块链接在一起时，你可以在屏幕一侧看到代码，并且可以随时切换编程语言来查看相同程序用不同编程语言编译的语法差异。这个功能使得Blockly成为各个年龄段教学代码的理想选择，包括年龄较大的孩子甚至是成年人。</li>
+<li>Blockly还可用于开发Android应用程序。</li>
+<li>然而，Blockly并没有像Scratch那样完全开发出来，与Scratch相比没有那么多可用的教程。尽管如此，Blockly对于所有年龄段的程序员都是一个强大的编程环境。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>引用自 <a href="https://www.zhihu.com/question/19705160" target="_blank" rel="noopener">儿童编程学什么语言好-https://www.zhihu.com/question/19705160</a></p>
+</blockquote>
+<blockquote>
+<p>引用自<a href="https://www.zhihu.com/question/332003063/answer/766467343" target="_blank" rel="noopener">如何教小孩子入门的计算机编程？-https://www.zhihu.com/question/332003063/answer/766467343</a></p>
+</blockquote>
+<h3 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h3><ol>
+<li>书籍<ol>
+<li><a href="https://book.douban.com/subject/27116976/" target="_blank" rel="noopener">编程真好玩-https://book.douban.com/subject/27116976/</a></li>
+<li><a href="https://book.douban.com/subject/26148626/" target="_blank" rel="noopener">Scratch少儿趣味编程-https://book.douban.com/subject/26148626/</a></li>
+</ol>
+</li>
+<li>视频<ol>
+<li>编程猫、阿儿法营等各类付费线上/线下编程教学,若不付费可在闲鱼搜索Scratch等相关盗版课程购买下载</li>
+<li><a href="https://www.bilibili.com/" target="_blank" rel="noopener">哔哩哔哩https://www.bilibili.com/</a> 上搜索相关Scratch视频课程学习<blockquote>
+<p>引用自 <a href="https://zhuanlan.zhihu.com/p/29130068" target="_blank" rel="noopener">观察了7家青少儿编程培训公司，我们得出了一些结论……https://zhuanlan.zhihu.com/p/29130068</a></p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>游戏<ol>
+<li>ipad上Stratch相关的编程小游戏</li>
+</ol>
+</li>
+<li>桌面版/网页版 Stratch应用平台</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>若父母没有编程经验，建议看视频教程或请教有编程经验的人请教，有机会的话可以参与线下付费课程。</li>
+<li>小孩年纪小不建议学习C、Python、Java等工业级编程语言，等年纪稍大再进行学习。通过Stratch这样的面向儿童的编程语言，让儿童了解简单的编程思维，例如条件、循环、事件等常规编程元素。</li>
+<li>任何一种图灵完备的语言理论上都能做任何事情，即使使用Stratch这样的语言也能做出小视频，小游戏等。</li>
+<li>通过学习少儿编程进而培养儿童理工科的兴趣，进而不仅对软件，甚至硬件的编程驱动的学习，都有利于儿童未来发展。</li>
+<li>儿童学习编程的方式多种多样，有通过编程玩小游戏，编写小游戏，甚至编写程序驱动乐高机器人等方式。建议家长根据自己的条件及儿童的兴趣，自行选择合适的培养方式。</li>
+<li>万事开头难，编程的学习不仅要看，更多的是要动手去做，正所谓读书万变,其义自见。不会不要紧，不会就多学几遍，多写几遍，编程思维自然就上来了。儿童对于编程的学习更要知道这一点。</li>
+<li>编程不仅仅只是语言本身，还有各种计算机理论及基础。如果要学得更深，需要去了解更多计算机的知识。</li>
+<li>本人对少儿编程领域不擅长，这只是我个人的一点点小的看法。如果有条件，建议请教儿童编程领域专业的人进行相关咨询和请教。</li>
+</ul>
+
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者: <a href="https://2rever.cn">2rever</a>
-            <p>原文链接: <a href="https://2rever.cn/2018/10/23/js柯里化curry函数实现/">https://2rever.cn/2018/10/23/js柯里化curry函数实现/</a>
-            <p>发表日期: <a href="https://2rever.cn/2018/10/23/js柯里化curry函数实现/">October 23rd 2018, 10:55:31 pm</a>
+            <p>原文链接: <a href="https://2rever.cn/2019/08/08/少儿编程浅谈/">https://2rever.cn/2019/08/08/少儿编程浅谈/</a>
+            <p>发表日期: <a href="https://2rever.cn/2019/08/08/少儿编程浅谈/">August 8th 2019, 9:51:23 pm</a>
             <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -415,17 +486,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/10/23/js中bind函数的实现（不考虑this）/" title= bind方法实现（不考虑this） >
-                    <div class="nextTitle">bind方法实现（不考虑this）</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/10/23/js二叉树遍历方法/" title= js二叉树遍历方法 >
-                    <div class="prevTitle">js二叉树遍历方法</div>
+                <a href= "/2019/05/25/摄影笔记/" title= 摄影笔记 >
+                    <div class="prevTitle">摄影笔记</div>
                 </a>
             
         </li>
@@ -548,7 +614,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#curry函数"><span class="toc-number">1.</span> <span class="toc-text">curry函数</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#缘由"><span class="toc-number">1.</span> <span class="toc-text">缘由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#少儿编程"><span class="toc-number">2.</span> <span class="toc-text">少儿编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语言介绍"><span class="toc-number">2.1.</span> <span class="toc-text">语言介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#学习计划"><span class="toc-number">2.2.</span> <span class="toc-text">学习计划</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习资源"><span class="toc-number">3.</span> <span class="toc-text">学习资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
